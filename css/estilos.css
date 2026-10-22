@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;/*con border-box hacemos que los bordes y paddings se incluyan dentro del tamaño total de nuestro elemento*/
+  margin: 0;/*eliminamos las margenes predetrminadas de los navegadores*/
+  padding: 0;/*elimina los paddingspredeterminado de los navegadores*/
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #050000; /* Fondo oscuro para resaltar el collage */
+  color: #fff;
+}
+
+.header {
+  background-color: #0015fa; /* Color institucional SENA */
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.main {
+  max-width: 1200px;/*designamos el ancho maximo del contenedor principla*/
+  margin: 2rem auto;/*deja un espacio de 2 rem arriba y abajo y centra de forma automaitca el contenedor*/
+  padding: 0 1rem;/*agrga una margen por asi decirlo de emergencia para que cuando se visualize en pantallas pequeñas no se peguen los elementos al borde de la panatalla*/
+}
+
+.collage-grid {
+  display: grid; /*activamos el css grid con el cual todos los elementos hijos sew tomaran como elementos los cuales podemos organizar por celdas*/
+  grid-template-columns: repeat(3, 1fr); /* Crea 3 columnas iguales */
+  grid-auto-rows: 250px; /*define que las filas de la cuadrcula tendran un alto de 250px*/
+  gap: 20px; /*tendremos 20px de espacio entre imagenes*/
+}
+
+.grid-item {
+  overflow: hidden; /*evita que las immagenes sobre salgan de los bordes y lo que salga de los bordes automaticamente se recortara*/
+  border-radius: 8px;/*redondeamos los border*/
+  box-shadow: 0 4px 15px rgb(0, 3, 91);
+}
+ 
+.item-horizontal {
+    grid-column: span 2; /*con el designamos que nuestra imagen ocupe 2 culumnas*/
+}
+
+.item-vertical {
+  grid-row: span 2; /*desiganamos que nuestra imagen ocupe dos filas */
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /*esta propiedad se encarga de elimira el sobrante de la imagen */
+  display: block;/*elimina el espacio en blnaco que coloca los navegadores por defecto en las imagenes*/
+  transition: transform 0.4s ease;
+}
+
+.grid-item:hover img {
+  transform: scale(1.03);
+}
